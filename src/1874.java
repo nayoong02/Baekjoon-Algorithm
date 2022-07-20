@@ -6,7 +6,7 @@ class Main_1874{
         StringBuffer sb = new StringBuffer(); //정답 담을 버퍼
         Scanner scan = new Scanner(System.in);
         int size = scan.nextInt(); //입력 받을 수열의 크기
-        int start = 1;
+        int start = 1; //기준은 1부터 시작
         Stack<Integer> stack = new Stack<>(); //1~n까지 넣을 스택
 
         //n번 반복
