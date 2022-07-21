@@ -41,7 +41,7 @@ class BinaryTree {
         }
     }
 
-    //전위순회
+    //전위순회(루트 -> 왼쪽 -> 오른쪽)
     public void preOrder(Node node) {
         if (node.data == '.') {
             return;
@@ -51,7 +51,7 @@ class BinaryTree {
         preOrder(node.right);
     }
 
-    //중위순회
+    //중위순회(왼쪽 -> 루트 -> 오른쪽)
     public void inOrder(Node node) {
         if (node.data == '.') {
             return;
@@ -61,7 +61,7 @@ class BinaryTree {
         inOrder(node.right);
     }
 
-    //후위순회
+    //후위순회(왼쪽 -> 오른쪽 -> 루트)
     public void postOrder(Node node) {
         if (node.data == '.') {
             return;
