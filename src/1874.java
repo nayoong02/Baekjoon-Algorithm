@@ -12,7 +12,7 @@ class Main_1874{
         //n번 반복
         for(int i = 0; i < size; i++){
             int input = scan.nextInt(); //수열을 이루는 수
-            if(input >= start){ //입력받은 숫자가 처음 기준보다 크면
+            if(input >= start){ //입력 받은 숫자가 처음 기준보다 크면
                 for(int j = start; j <= input; j++){ //input 될 때까지 push
                     stack.push(j);
                     sb.append('+').append('\n');
