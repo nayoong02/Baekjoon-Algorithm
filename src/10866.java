@@ -6,9 +6,9 @@ import java.util.LinkedList;
 class Main_10866 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(); //정답 담을 버퍼
         int n = Integer.parseInt(br.readLine());
-        LinkedList<Integer> deque = new LinkedList<Integer>();
+        LinkedList<Integer> deque = new LinkedList<Integer>(); //덱 생성
 
         for(int i=0; i<n; i++) {
             String[] com = br.readLine().split(" ");
@@ -61,7 +61,5 @@ class Main_10866 {
             }
         }
         System.out.println(sb);
-
     }
-
 }
