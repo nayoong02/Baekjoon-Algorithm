@@ -26,7 +26,7 @@ class BinaryTree {
             searchNode(root, data, left, right);
         }
     }
-    
+
     public void searchNode(Node node, char data, char left, char right){
         if(node == null){ //빈노드일 경우
             return;
