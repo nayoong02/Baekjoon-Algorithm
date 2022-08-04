@@ -1,3 +1,4 @@
+/**DP**/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,6 +26,7 @@ class Main_11053{
             }
         }
 
+        //dp 배열 중 최대값 찾기
         int max = 0;
         for(int d : dp){
             max = Math.max(d, max);
