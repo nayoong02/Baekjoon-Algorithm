@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 class Main_1260{
     static int[][] Dgraph = new int[1001][1001];
     static int[][] Bgraph = new int[1001][1001];
-    static boolean[] Dvisited = new boolean[10001];
-    static boolean[] Bvisited = new boolean[10001];
+    static boolean[] Dvisited = new boolean[1001];
+    static boolean[] Bvisited = new boolean[1001];
     static int n, m, v;
 
     public static void main(String[] args) throws IOException {
