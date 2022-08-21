@@ -1,4 +1,3 @@
-/**DP**/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +19,7 @@ class Main_11053{
         for(int i = 1; i < n; i++){
             dp[i] = 1;
             for(int j = 0; j < i; j++){
-                if(arr[j] < arr[i] && dp[i] <= dp[j]){
+                if(arr[j] < arr[i] && dp[j] >= dp[i]){
                     dp[i] = dp[j] + 1;
                 }
             }
