@@ -12,6 +12,5 @@ class Main_10757 {
 
         System.out.println(A.add(B));
 
-
     }
 }
