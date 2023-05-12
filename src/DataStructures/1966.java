@@ -3,54 +3,46 @@ package DataStructures;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-class Main_1966{
-    public static void main(String[] args){
+class Main_1966 {
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
-        int t = scan.nextInt(); //테스트 케이스 수
+        int test = scan.nextInt(); // 테스트 케이스 수
 
-        for(int i = 0; i < t; i++){
-            int n = scan.nextInt(); //문서 개수
-            int m = scan.nextInt(); //궁금한 문서 인덱스
+        for (int i = 0; i < test; i++) {
+            int N = scan.nextInt(); // 문서 개수
+            int M = scan.nextInt(); // 궁금한 문서 인덱스
             int count = 0;
+            LinkedList<int[]> queue = new LinkedList<>(); // 큐 생성
 
-            LinkedList<int[]> queue = new LinkedList<>();
-            for(int j = 0; j < n; j++){ //{초기 인덱스, 중요도}
-                queue.add(new int[] {j, scan.nextInt()});
+            // 큐에 {문서 인덱스, 중요도} add
+            for (int j = 0; j < N; j++) {
+                int importance = scan.nextInt(); // 문서 중요도
+                queue.add(new int[]{j, importance});
             }
 
-            while (!queue.isEmpty()){
-                int[] front = queue.poll(); //가장 첫 원소
-                boolean isMax = true; //front가 가잔 큰 원소인지
+            while (!queue.isEmpty()) {
+                int[] front = queue.poll(); // 큐의 첫 번째 문서 poll
+                boolean isMax = true; // front의 중요도가 Max인지
 
-                for(int k = 0; k < queue.size(); k++){
-                    if(front[1] < queue.get(k)[1]){ //처음 원소의 중요도보다 높은 게 있으면
-                        queue.offer(front); //첫 원소를 뒤로 이동
-
-                        for(int l = 0; l < k; l++){
-                            queue.offer(queue.poll()); //첫 원소 다음부터 큰 중요도 원소 전까지를 뒤로 이동
-                        }
-
-                        //처음 원소가 계속 같은 값으로 비교 대상이 되면 안되므로 종료 조건 필요
+                for (int k[] : queue) { // 큐 돌면서 front보다 중요도 큰 문서 있는지
+                    if (front[1] < k[1]) { // 있으면
                         isMax = false;
                         break;
                     }
                 }
 
-                if(isMax == false){ //front가 가장 큰 원소가 아니므로 다음 반복문 진행
-                    continue;
+                if (isMax == true) { // front의 중요도 가장 크면
+                    count++;
+                    if (front[0] == M) { // front의 인덱스와 M이 같다면 탐색 종료
+                        break;
+                    }
+                } else { // isMax == false면 큐의 뒤로 front add
+                    queue.add(front);
                 }
-
-                //front가 가장 큰 원소라면 count
-                count++;
-                if(front[0] == m){ //인덱스가 일치하면 테스트 케이스 탐색 종료
-                    break;
-                }
-           }
-
-            sb.append(count + "\n");
+            }
+            sb.append(count).append("\n");
         }
-
-        System.out.print(sb);
+        System.out.println(sb);
     }
 }
