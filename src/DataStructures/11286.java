@@ -10,24 +10,15 @@ class Main_11286 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
+
         PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                if (Math.abs(o1) < Math.abs(o2)) { // 절댓값 기준 오름차순 정렬
-                    return -1;
-                } else if (Math.abs(o1) > Math.abs(o2)) {
-                    return 1;
-                } else { // 절댓값 같은 경우
-                    if (o1 == o2) { // 부호가 같은 경우
-                        return 0;
-                    }
-                    else { // 부호가 다른 경우
-                        if (o1 < o2) { // 가장 작은 값부터 출력돼야하므로 오름차순 정렬
-                            return -1;
-                        } else {
-                            return 1;
-                        }
-                    }
+                if (Math.abs(o1) == Math.abs(o2)) { // 절대값 같으면 음수 우선 정렬
+                    return o1 < o2 ? -1 : 1;
+                }
+                else { // 아니면 그냥 오름차순 정렬
+                    return Math.abs(o1) - Math.abs(o2);
                 }
             }
         });
