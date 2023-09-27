@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 class Main_15650 {
     static int N, M;
-    static boolean[] visited;
     static StringBuilder sb = new StringBuilder();
     static int[] arr;
 
@@ -14,26 +13,23 @@ class Main_15650 {
         M = scan.nextInt();
         arr = new int[M];
 
-        visited = new boolean[N];
-        back(0, 0);
+        dfs(0, 0);
         System.out.println(sb);
     }
 
-    public static void back(int start, int count) {
+    // 오름차순 정렬이니까 start부터 오른쪽으로 +1
+    public static void dfs(int start, int count) {
         if (count == M) {
             for (int a : arr) {
-                sb.append(a + 1).append(" ");
+                sb.append(a).append(" ");
             }
             sb.append("\n");
             return;
         }
+
         for (int i = start; i < N; i++) {
-            if (visited[i] == false) {
-                visited[i] = true;
-                arr[count] = i;
-                back(i + 1, count + 1);
-                visited[i] = false;
-            }
+            arr[count] = i + 1;
+            dfs(i + 1, count + 1);
         }
     }
 }
